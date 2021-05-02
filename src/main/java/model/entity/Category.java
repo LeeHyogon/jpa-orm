@@ -10,17 +10,16 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Item {
+public class Category {
     @Id
     @GeneratedValue
-    @Column(name = "ITEM_ID")
+    @Column(name = "CATEGORY_ID")
     private Long id;
 
-    @OneToMany(mappedBy="items")
-    private List<Category> categories=new ArrayList<Category>();
-
     private String name;
-    private int price;
-    private int stockQuantity;
-}
 
+    @OneToMany
+    private List<Item> items=new ArrayList<Item>();
+
+
+}

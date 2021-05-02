@@ -24,6 +24,11 @@ public class Order {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;      //주문 회원
 
+
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;  //배송 정보
+
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
@@ -47,6 +52,10 @@ public class Order {
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
         orderItem.setOrder(this);
+    }
+    public void setDelivery(Delivery delivery){
+        this.delivery=delivery;
+        delivery.setOrder(this);
     }
 
 
