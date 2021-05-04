@@ -20,16 +20,16 @@ public class Order extends BaseEntity {
     @Column(name="ORDER_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;      //주문 회원
 
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;  //배송 정보
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(cascade=CascadeType.ALL,mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
 
@@ -57,6 +57,4 @@ public class Order extends BaseEntity {
         this.delivery=delivery;
         delivery.setOrder(this);
     }
-
-
 }
