@@ -19,9 +19,12 @@ public class Delivery {
     @OneToOne(mappedBy = "delivery")
     private Order order;
 
-    private String city;
-    private String street;
-    private String zipcode;
+    //private String city;
+    //private String street;
+    //private String zipcode;
+
+    @Embedded
+    private Address address;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
