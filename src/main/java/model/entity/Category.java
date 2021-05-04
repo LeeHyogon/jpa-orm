@@ -2,6 +2,7 @@ package model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import model.entity.item.Item;
 
 import javax.persistence.*;
 import java.util.ArrayList;

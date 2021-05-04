@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.entity.item.Item;
+
 import javax.persistence.*;
 
 @Entity

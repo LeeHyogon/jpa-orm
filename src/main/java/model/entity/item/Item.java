@@ -1,7 +1,8 @@
-package model.entity;
+package model.entity.item;
 
 import lombok.Getter;
 import lombok.Setter;
+import model.entity.Category;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,7 +11,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="DTYPE")
+public abstract class Item {
     @Id
     @GeneratedValue
     @Column(name = "ITEM_ID")
